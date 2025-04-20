@@ -1,0 +1,9 @@
+[
+  { "value": "CSE", "label": "Computer Science and Engineering" },
+  { "value": "ECE", "label": "Electronics and Communication Engineering" },
+  { "value": "EEE", "label": "Electrical and Electronics Engineering" },
+  { "value": "MECH", "label": "Mechanical Engineering" },
+  { "value": "IT", "label": "Information Technology" },
+  { "value": "CIVIL", "label": "Civil Engineering" },
+  { "value": "CBR", "label": "Cyber Security" }
+]
