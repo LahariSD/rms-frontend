@@ -367,7 +367,9 @@ const FacultyDashboard = () => {
                         </button>
                       </TableCell>
                       <TableCell>{student.name}</TableCell>
-                      <TableCell>{student.cgpa}</TableCell>
+                      <TableCell>
+                        {Math.floor(student.cgpa * 100) / 100}
+                      </TableCell>
                       <TableCell>{student.percentage}%</TableCell>
                       <TableCell>{student.allActiveBacklogs}</TableCell>
                       {allSemesters.map((sem) => {
