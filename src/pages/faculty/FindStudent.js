@@ -25,7 +25,7 @@ const FindStudent = () => {
   // Parse the JSON string to get the object
   useEffect(() => {
     if (studentData) {
-      const student = JSON.parse(decodeURIComponent(studentData));
+      const student = JSON.parse(localStorage.getItem("selectedStudent"));
       setStudent(student);
     }
   }, [studentData]);

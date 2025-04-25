@@ -1,17 +1,12 @@
-import {
-  Button,
-  Card,
-  CardContent,
-  MenuItem,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Button, MenuItem, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import BECcampus from "../../assets/bec-campus.png";
+import BECLogo from "../../assets/bec-logo.jpeg";
 import { API_BASE_URL, AUTH_API_ENDPOINTS, ROLES } from "../../data/Constants";
 
-const Login = () => {
+const LoginPage = () => {
   const navigate = useNavigate();
   const [userRole, setUserRole] = useState("");
   const [email, setEmail] = useState("");
@@ -54,69 +49,66 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <Card className="w-full max-w-md shadow-lg rounded-lg">
-        <CardContent>
-          <Typography variant="h5" className="text-center mb-4 font-bold">
-            Login
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: `url(${BECcampus})` }}
+    >
+      <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg max-w-md w-full">
+        <div className="flex justify-center mb-4">
+          <img src={BECLogo} alt="BEC Logo" className="h-16" />
+        </div>
+        <Typography variant="h5" className="text-center mb-4 font-bold">
+          Bapatla Engineering College
+        </Typography>
+        <Typography variant="h6" className="text-center mb-6 text-gray-700">
+          Login Portal
+        </Typography>
+        {error && (
+          <Typography color="error" className="text-center">
+            {error}
           </Typography>
-          {error && (
-            <Typography color="error" className="text-center">
-              {error}
-            </Typography>
-          )}
-          <form onSubmit={handleLogin} className="space-y-4">
-            <TextField
-              select
-              label="Select Role"
-              fullWidth
-              value={userRole}
-              onChange={(e) => setUserRole(e.target.value)}
-              required
-            >
-              {ROLES.map((role) => (
-                <MenuItem key={role} value={role}>
-                  {role.charAt(0).toUpperCase() + role.slice(1).toLowerCase()}
-                </MenuItem>
-              ))}
-            </TextField>
+        )}
+        <form onSubmit={handleLogin} className="space-y-4">
+          <TextField
+            select
+            label="Select Role"
+            fullWidth
+            value={userRole}
+            onChange={(e) => setUserRole(e.target.value)}
+            required
+          >
+            {ROLES.map((role) => (
+              <MenuItem key={role} value={role}>
+                {role.charAt(0).toUpperCase() + role.slice(1).toLowerCase()}
+              </MenuItem>
+            ))}
+          </TextField>
 
-            <TextField
-              label="Email"
-              type="email"
-              fullWidth
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+          <TextField
+            label="Email"
+            type="email"
+            fullWidth
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-            <TextField
-              label="Password"
-              type="password"
-              fullWidth
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+          <TextField
+            label="Password"
+            type="password"
+            fullWidth
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-            <Typography variant="body2" className="text-center text-gray-500">
-              Don't have an account?{" "}
-              <Link
-                to="/register"
-                className="text-blue-600 hover:text-blue-800"
-              >
-                Register
-              </Link>
-            </Typography>
-
-            <Button type="submit" variant="contained" color="primary" fullWidth>
-              Login
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+          <Button type="submit" variant="contained" color="primary" fullWidth>
+            Login
+          </Button>
+        </form>
+      </div>
     </div>
   );
 };
 
-export default Login;
+export default LoginPage;

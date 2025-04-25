@@ -352,15 +352,17 @@ const FacultyDashboard = () => {
                     >
                       <TableCell>
                         <button
-                          onClick={() =>
+                          onClick={() => {
+                            localStorage.setItem(
+                              "selectedStudent",
+                              JSON.stringify(student)
+                            );
                             window.open(
-                              `/f/findstudent?data=${encodeURIComponent(
-                                JSON.stringify(student)
-                              )}`,
+                              `/f/findstudent?data=${student.rollNumber}`,
                               "_blank",
                               "noopener,noreferrer"
-                            )
-                          }
+                            );
+                          }}
                           className="text-blue-600 hover:underline cursor-pointer"
                         >
                           {student.rollNumber}

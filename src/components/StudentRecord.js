@@ -68,7 +68,8 @@ const StudentRecord = ({ student }) => {
                 {student.allBacklogs}
               </Typography>
               <Typography className="font-medium">
-                <span className="text-gray-900">CGPA:</span> {student.cgpa}
+                <span className="text-gray-900">CGPA:</span>{" "}
+                {Math.floor(student.cgpa * 100) / 100}
               </Typography>
               <Typography className="font-medium">
                 <span className="text-gray-900">Percentage:</span>{" "}
