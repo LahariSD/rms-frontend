@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div>
       <img
-        src="http://becbapatla.ac.in/wp-content/uploads/banner-copy-1-copy.jpg"
+        src={Banner}
         alt="College Banner"
         style={{ width: "100%", height: "auto" }}
       />
