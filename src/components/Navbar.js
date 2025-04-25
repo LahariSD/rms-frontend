@@ -1,6 +1,7 @@
 import { AccountCircle, ExitToApp } from "@mui/icons-material"; // Import MUI icons
 import React from "react";
 import { Link } from "react-router-dom";
+import Banner from "../assets/banner.jpg";
 import routesConfig from "../routes/routesConfig";
 
 const Navbar = () => {
